@@ -19,11 +19,62 @@ body::-webkit-scrollbar {
   }
   /* ------------------------------------------------- */
 
-
+/* -----------------media query------------------ */
+@media (max-width: 490px) {
+    .maincontainer{
+        display: none;
+    }
+    .something{
+        display: none;
+    }
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    .lmao{
+        height: 100vh;
+        background-color: #0E223D;
+        position: relative;
+    }
+    .logocontainer{
+        /* display: flex;
+        justify-content: center;
+        margin-top: 30%; */
+        height: 100vh;
+        justify-content: center;
+        top: 0;   
+        display: flex;
+        position: absolute;
+    }
+    .logo{
+        width: 60%;
+        
+        
+    }
+    .moblielines{
+        width: 100%;
+        
+    }
+    .moblielines1{
+        width: 100%;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;      
+    }   
+    
+}
+/* ---------------------------------------------- */
+@media (min-width: 490px){
+    .lmao{
+        display: none;
+    }
+}
 .something{
     width: 100%;
     /* margin-top: -10%; */
     padding: 0;
+    
 }
 .secondsection{
     background-color: #FDE5C1;
