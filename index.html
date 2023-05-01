@@ -1,36 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Input Example</title>
-</head>
-<body>
-    <h1>SAY ANYTHING</h1>
-	<label for="inputField"></label>
-	<input type="text" id="inputField">
-	<button onclick="printInput()">Submit</button>
-
-	<p id="output"></p>
-
-	<script>
-		// Check if there is a stored input value in localStorage
-		if (localStorage.getItem("inputValue")) {
-			document.getElementById("output").innerHTML = localStorage.getItem("inputValue");
-		}
-
-		function printInput() {
-			const input = document.getElementById("inputField").value;
-			const outputElement = document.getElementById("output");
-			const existingOutput = outputElement.innerHTML;
-
-			// Append the new message to the existing messages
-			outputElement.innerHTML = existingOutput + "<br>" + input;
-
-			// Store all the messages in localStorage
-			localStorage.setItem("inputValue", outputElement.innerHTML);
-
-			// Clear the input field
-			document.getElementById("inputField").value = "";
-		}
-	</script>
-</body>
+  <head>
+    <title>Message Board</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div id="container">
+      <h1>Message Board</h1>
+      <form>
+        <input type="text" id="message" placeholder="Type your message...">
+        <button type="submit" onclick="addMessage(event)">Post</button>
+      </form>
+      <div id="messages"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
