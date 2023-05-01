@@ -24,13 +24,16 @@ function addMessage(event) {
 function loadMessages() {
   fetch("load.php")
     .then(function(response) {
-      return response.json();
+      return response.text();
     })
     .then(function(data) {
+      const parser = new DOMParser();
+      const xml = parser.parseFromString(data, "text/xml");
       let messagesHtml = "";
-      data.forEach(function(message) {
-        messagesHtml += "<p>" + message.message + "</p>";
-      });
+      const messages = xml.getElementsByTagName("message");
+      for (let i = 0; i < messages.length; i++) {
+        messagesHtml += "<p>" + messages[i].textContent + "</p>";
+      }
       document.getElementById("messages").innerHTML = messagesHtml;
     });
 }
