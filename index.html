@@ -1,21 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+	<title>Input Example</title>
 </head>
 <body>
-    <div class="title">
-        <h1>Will It Matter At Last?</h1>
-    </div>
-    <div class="story-text">
-        <p>
-            <h2>27-03-2023</h2>
-            <h3>I always say, 'There isn't a day where I don't want to die. I just want a day where I don't wanna die.' However, I realize that I have never worked towards achieving that day and instead, I have always expected it to come to me.</h3>
-        </p>
-    </div>
+    <h1>SAY ANYTHING</h1>
+	<label for="inputField"></label>
+	<input type="text" id="inputField">
+	<button onclick="printInput()">Submit</button>
+
+	<p id="output"></p>
+
+	<script>
+		// Check if there is a stored input value in localStorage
+		if (localStorage.getItem("inputValue")) {
+			document.getElementById("output").innerHTML = localStorage.getItem("inputValue");
+		}
+
+		function printInput() {
+			const input = document.getElementById("inputField").value;
+			const outputElement = document.getElementById("output");
+			const existingOutput = outputElement.innerHTML;
+
+			// Append the new message to the existing messages
+			outputElement.innerHTML = existingOutput + "<br>" + input;
+
+			// Store all the messages in localStorage
+			localStorage.setItem("inputValue", outputElement.innerHTML);
+
+			// Clear the input field
+			document.getElementById("inputField").value = "";
+		}
+	</script>
 </body>
-</html> 
+</html>
