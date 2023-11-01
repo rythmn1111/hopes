@@ -1,4 +1,7 @@
 /* Styles for the video container */
+body{
+    background-color: black;
+}
 .video-container {
     position: fixed;
     top: 0;
